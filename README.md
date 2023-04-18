@@ -1,15 +1,18 @@
 # Animated-eyes-Waveshare-1.28inch-LCD-Module-with-RaspberryPi-3B
 
-Ubuntu Server 22.10 (32bit) on RaspberryPi 3B+
+**Ubuntu Server 22.10 (32bit) on RaspberryPi 3B+**
 
-1. Basic information:
+**Basic information**
+
 You can easly run the program with the command below :
+
 ```
 sudo python3 animatedEyes.py
 ```
 
-2. Pin connection:
-Pin connection You can view it in \lib\lcdconfig.py , and repeat it here:
+**Pin connection**
+
+```
 EPD  	=>	RPI(BCM)
 VCC    	->    	5V
 GND    	->    	GND
@@ -19,13 +22,14 @@ CS     	->    	8(CE0)
 DC     	->    	25
 RST    	->    	27
 BL  	->    	18
-
-
-3. Installation library
 ```
-    sudo apt-get update
-    sudo apt-get install python3-pip
-    sudo apt-get install python3-pil
-    sudo apt-get install python3-numpy
-    sudo pip3 install RPi.GPIO
+
+**Installation library**
+
+```
+sudo apt-get update
+sudo apt-get install python3-pip
+sudo apt-get install python3-pil
+sudo apt-get install python3-numpy
+sudo pip3 install RPi.GPIO
 ```
