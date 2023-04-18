@@ -1,4 +1,4 @@
-# Animated-eyes-Waveshare-1.28inch-LCD-Module-with-RaspberryPi-3B
+# Waveshare 1.28inch LCD Module animated eyes powered by RaspberryPi 3B+
 
 **Ubuntu Server 22.10 (32bit) on RaspberryPi 3B+**
 
