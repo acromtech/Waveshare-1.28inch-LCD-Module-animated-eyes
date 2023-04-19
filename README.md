@@ -2,6 +2,8 @@
 
 **Ubuntu Server 22.10 (32bit) on RaspberryPi 3B+**
 
+You can check the steps on [raspberrypi-france.fr](https://www.raspberrypi-france.fr/lancer-un-script-python-au-demarrage-du-raspberry-pi/) to launch the soft automaticly when Raspberry Pi started.
+
 **Basic information**
 
 You can easly run the program with the command below :
