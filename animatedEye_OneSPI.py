@@ -26,24 +26,24 @@ def setImgToScreen(pathImage):
     time.sleep(DELAY1)
 
 def openEye():
-    setImgToScreen('./pic/CLEAR.png')
-    setImgToScreen('./pic/anim7.png')
-    setImgToScreen('./pic/anim6.png')
-    setImgToScreen('./pic/anim5.png')
-    setImgToScreen('./pic/anim4.png')
-    setImgToScreen('./pic/anim3.png')
-    setImgToScreen('./pic/anim2.png')
-    setImgToScreen('./pic/anim1.png')
+    setImgToScreen('../pic/CLEAR.png')
+    setImgToScreen('../pic/anim7.png')
+    setImgToScreen('../pic/anim6.png')
+    setImgToScreen('../pic/anim5.png')
+    setImgToScreen('../pic/anim4.png')
+    setImgToScreen('../pic/anim3.png')
+    setImgToScreen('../pic/anim2.png')
+    setImgToScreen('../pic/anim1.png')
 
 def closeEye():
-    setImgToScreen('./pic/anim1.png')
-    setImgToScreen('./pic/anim2.png')
-    setImgToScreen('./pic/anim3.png')
-    setImgToScreen('./pic/anim4.png')
-    setImgToScreen('./pic/anim5.png')
-    setImgToScreen('./pic/anim6.png')
-    setImgToScreen('./pic/anim7.png')
-    setImgToScreen('./pic/CLEAR.png')
+    setImgToScreen('../pic/anim1.png')
+    setImgToScreen('../pic/anim2.png')
+    setImgToScreen('../pic/anim3.png')
+    setImgToScreen('../pic/anim4.png')
+    setImgToScreen('../pic/anim5.png')
+    setImgToScreen('../pic/anim6.png')
+    setImgToScreen('../pic/anim7.png')
+    setImgToScreen('../pic/CLEAR.png')
 
 try:
     disp = LCD_1inch28.LCD_1inch28() # display with hardware SPI: ''' Warning!!!Don't  creation of multiple displayer objects!!! '''
