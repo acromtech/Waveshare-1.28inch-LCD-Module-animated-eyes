@@ -1,52 +1,39 @@
 #!/bin/bash
 
-# Vérification des droits super-utilisateur
+# Check for root privileges
 if [ "$(id -u)" -ne 0 ]; then
-    echo "Ce script doit être exécuté avec les privilèges root. Utilisez sudo."
+    echo "This script must be run with root privileges. Please use sudo."
     exit 1
 fi
 
-echo "Mise à jour des paquets..."
+echo "Updating package list and upgrading existing packages..."
 apt update && apt upgrade -y
 
-echo "Installation des dépendances nécessaires..."
-# Python et pip
-apt install -y python3 python3-pip python3-dev
+echo "Installing required dependencies..."
 
-# Bibliothèques pour SPI et GPIO
-apt install -y python3-spidev python3-rpi.gpio
-
-# Pillow pour la manipulation des images
+# Libraries and tools
+apt install -y python3 python3-pip python3-dev python3-pil python3-numpy python3-rpi.gpio
 pip3 install --upgrade pip
-pip3 install pillow
+pip3 install spidev RPi.GPIO pillow
 
-# Installation de spidev
-if ! python3 -c "import spidev" &>/dev/null; then
-    echo "spidev non détecté, installation via pip."
-    pip3 install spidev
-else
-    echo "spidev est déjà installé."
-fi
-
-# Configuration SPI (activation si non activé)
+# SPI configuration (enable if not already active)
 if ! grep -q "dtparam=spi=on" /boot/config.txt; then
-    echo "Activation de l'interface SPI..."
+    echo "Enabling SPI0 interface..."
     echo "dtparam=spi=on" >> /boot/config.txt
-    echo "Veuillez redémarrer pour activer SPI si ce n'est pas encore fait."
-else
-    echo "SPI est déjà activé dans /boot/config.txt."
 fi
 
-echo "Téléchargement des fichiers de la librairie Waveshare..."
-LIB_DIR="Waveshare-1.28inch-LCD-Module-animated-eyes"
-if [ ! -d "$LIB_DIR" ]; then
-    git clone https://github.com/waveshare/Waveshare-1.28inch-LCD-Module.git "$LIB_DIR"
-    echo "Librairie téléchargée dans $LIB_DIR."
-else
-    echo "La librairie $LIB_DIR existe déjà."
+if ! grep -q "dtoverlay=spi1-3cs" /boot/config.txt; then
+    echo "Enabling SPI1 with 3 Chip Selects..."
+    echo "dtoverlay=spi1-3cs" >> /boot/config.txt
 fi
 
-echo "Nettoyage des fichiers inutiles..."
-apt autoremove -y
+echo "Configuration completed."
 
-echo "Installation terminée. Si vous avez activé SPI, pensez à redémarrer le système."
+# Check if a reboot is required
+if [ -f /var/run/reboot-required ]; then
+    echo "A reboot is required to apply the changes. Rebooting now..."
+    reboot
+else
+    echo "No reboot required. Your Raspberry Pi is ready to use."
+fi
+
