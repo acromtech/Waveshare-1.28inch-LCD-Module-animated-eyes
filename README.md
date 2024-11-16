@@ -90,7 +90,7 @@ Use the `dependencies.sh` script to automatically install all necessary dependen
 Once the dependencies are installed and the displays are wired correctly, run the program using:
 
 ```bash
-sudo python3 eyes_mouth.py
+sudo python3 main.py
 ```
 
 ---

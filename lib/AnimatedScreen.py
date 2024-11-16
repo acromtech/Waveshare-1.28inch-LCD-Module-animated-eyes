@@ -24,6 +24,12 @@ class AnimatedScreen:
         self.display = LCD_1inch28.LCD_1inch28(spi=self.spi, rst=rst, dc=dc, bl=bl)
         self.display.Init()
         self.display.clear()
+        
+    # TOOLS -----------------------------------
+        
+    def display_img(self, pathImage, delay=0.1):
+    	self.display.ShowImage(Image.open(pathImage))
+    	time.sleep(delay)
 
     def display_gif(self, gif_path, delay=0.1):
         """
@@ -43,8 +49,27 @@ class AnimatedScreen:
     def clear(self):
         """Nettoie l'écran."""
         self.display.clear()
+        
+    
+    # CUSTOM USE --------------------------------
+    
+    def openEye(self):
+        self.display_img('./pic/CLEAR.png')
+        self.display_img('./pic/anim7.png')
+        self.display_img('./pic/anim6.png')
+        self.display_img('./pic/anim5.png')
+        self.display_img('./pic/anim4.png')
+        self.display_img('./pic/anim3.png')
+        self.display_img('./pic/anim2.png')
+        self.display_img('./pic/anim1.png')
 
-    def close(self):
-        """Libère les ressources de l'écran."""
-        self.display.module_exit()
+    def closeEye(self):
+        self.display_img('./pic/anim1.png')
+        self.display_img('./pic/anim2.png')
+        self.display_img('./pic/anim3.png')
+        self.display_img('./pic/anim4.png')
+        self.display_img('./pic/anim5.png')
+        self.display_img('./pic/anim6.png')
+        self.display_img('./pic/anim7.png')
+        self.display_img('./pic/CLEAR.png')
 
