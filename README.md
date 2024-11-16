@@ -70,11 +70,7 @@ Use the `dependencies.sh` script to automatically install all necessary dependen
 
 ### **Mouth Display (SPI1)**
 
-To enable SPI1, add the following line to the `/boot/config.txt` file:
-```bash
-echo "dtoverlay=spi1-3cs" | sudo tee -a /boot/config.txt
-sudo reboot
-```
+(Your SPI1 is already activated during dependencies installation)
 
 | Signal | Raspberry Pi Pin | Description          |
 |--------|-------------------|----------------------|
